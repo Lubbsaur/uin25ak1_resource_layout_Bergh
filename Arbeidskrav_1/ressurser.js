@@ -95,23 +95,98 @@ const resources = [
     },
 ]
 
-let mainArticle = document.getElementById('main-article');
-const htmlAdd = document.getElementById('html');
+let mainArticle = document.getElementById('main-section');
 
-const resourcesHeadings = resources.map((res) => {
-    return res.category;
-    
+mainArticle.innerHTML = `
+    <nav>
+        <ul>
+            <li><a id="html">HTML</a></li>
+            <li><a>CSS</a></li>
+            <li><a>JavaScript</a></li>
+            <li><a>React</a></li>
+            <li><a>Sanity and headless CMS</a></li>
+        </ul>
+    </nav>
+    <article id="main-article">
+        <h2>HTML</h2>
+        <p>HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.</p>
+        <ul>
+        <li><a href="https://www.w3schools.com/html/">W3Schools</a></li>
+        <li><a href="https://html.spec.whatwg.org/multipage/">HTML Living standard</a></li>
+        <li><a href="https://html.com/">HTML.com Tutorials</a></li>
+        </ul>
+    </article>
+`;
+
+
+
+
+
+const text = resources.map((res) => {
+    return res.text;
 });
 
-const headings = document.querySelector('.meny').innerHTML;
+const sourcesTitle = resources.map((res) => {
+    return res.sources[0].title;
+});
 
-console.log(resourcesHeadings);
+//let  = document.querySelectorAll('.meny');
 
-htmlAdd.addEventListener('click', (e) => { 
-    console.log("hei")
-})
 
+/*
 function renderSite() {
+    
+    const resourcesHTML = resources.map((res) => {
+        return `<li><a>${res.category}</a></li>`
+    }).join('')
+    
+    let headingsHTML = `
+        <nav>
+            <ul>
+                ${resourcesHTML}
+            </ul>
+        </nav>
+        <article id="main-article">
+            <h2>HTML</h2>
+            <p>${text}</p>
+            <ul>
+            <li><a href="https://www.w3schools.com/html/">W3Schools</a></li>
+            <li><a href="https://html.spec.whatwg.org/multipage/">HTML Living standard</a></li>
+            <li><a href="https://html.com/">HTML.com Tutorials</a></li>
+            </ul>
+        </article>
+    `;
+
+    console.log(headingsHTML);
 
 
-}
+    mainArticle.innerHTML = headingsHTML;
+
+    //const choiceHtml = document.getElementById('html');
+
+    choiceHtml.addEventListener('click', (e) => { 
+        
+    })
+
+    //mainArticle.innerHTML += headingsHTML;
+
+}*/
+
+//renderSite();
+
+/*
+<nav>
+            <ul>
+            
+            </ul>
+        </nav>
+            <article id="main-article">
+            <h2>${headings[0]}</h2>
+            <p>${text[0]}</p>
+            <ul>
+            <li><a href="https://www.w3schools.com/html/">W3Schools</a></li>
+            <li><a href="https://html.spec.whatwg.org/multipage/">HTML Living standard</a></li>
+            <li><a href="https://html.com/">HTML.com Tutorials</a></li>
+            </ul>
+        </article>
+*/
