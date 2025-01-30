@@ -95,16 +95,16 @@ const resources = [
     },
 ]
 
-let mainArticle = document.getElementById('main-section');
+const mainArticle = document.getElementById('main-section');
 
 mainArticle.innerHTML = `
     <nav>
         <ul>
             <li><a id="html">HTML</a></li>
-            <li><a>CSS</a></li>
-            <li><a>JavaScript</a></li>
-            <li><a>React</a></li>
-            <li><a>Sanity and headless CMS</a></li>
+            <li><a id="css">CSS</a></li>
+            <li><a id="js">JavaScript</a></li>
+            <li><a id="react">React</a></li>
+            <li><a id="sanity">Sanity and headless CMS</a></li>
         </ul>
     </nav>
     <article id="main-article">
@@ -118,9 +118,50 @@ mainArticle.innerHTML = `
     </article>
 `;
 
+function selectItem() {
+    let selector;
+    resources.map((item) => {
+        if (item === )
+    })
+}
 
+const resourcesSources = resources.map((item) => {
+    return item.sources;
+})
 
+console.log(resourcesSources)
 
+const tempLi = document.querySelectorAll('nav ul li');
+
+const htmlTag = document.getElementById('html')
+htmlTag.addEventListener('click', e => {
+    htmlTag.style.color = '#fff';
+    const resourcesHTML = resources.map((res) => {
+        return (`
+                <nav>
+                    <ul>
+                        <li><a id="html">${res.text}</a></li>
+                        <li><a id="css">CSS</a></li>
+                        <li><a id="js">JavaScript</a></li>
+                        <li><a id="react">React</a></li>
+                        <li><a id="sanity">Sanity and headless CMS</a></li>
+                    </ul>
+                </nav>
+                <article id="main-article">
+                    <h2>HTML</h2>
+                    <p>HTML står for HyperText Markup Language, og er et strukturspråk som brukes for å lage strukturer til nettside- og applikasjonsgrensesnitt.</p>
+                    <ul>
+                    <li><a href="https://www.w3schools.com/html/">W3Schools</a></li>
+                    <li><a href="https://html.spec.whatwg.org/multipage/">HTML Living standard</a></li>
+                    <li><a href="https://html.com/">HTML.com Tutorials</a></li>
+                    </ul>
+                </article>
+                ${console.log(res.category)}
+        `)
+        
+    })
+    mainArticle.innerHTML = resourcesHTML;
+})
 
 const text = resources.map((res) => {
     return res.text;
