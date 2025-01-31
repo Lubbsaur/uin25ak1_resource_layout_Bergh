@@ -95,6 +95,9 @@ const resources = [
     },
 ]
 
+
+//Jeg brukte kjempemye tid og energi på å forsøke 
+
 const mainSection = document.getElementById('main-section');
 
 mainSection.innerHTML = `
@@ -119,19 +122,82 @@ mainSection.innerHTML = `
 `;
 
 
-const navList = document.querySelectorAll('.navlist a');
-const mainArticle = document.getElementById('main-article');
+//Jeg brukte kjempemye tid og energi på å forsøke å forstå en del grunnleggende prinsipper i JavaScript og koding generelt,
+//men jeg klarte ikke å vri hodet mitt rundt de prinsippene som jeg ville skjønne. Så det endte med at jeg brukte ChatGPT 
+//og herr Marius Rørmark til å hjelpe meg med å bli ferdig. 
+//Her er prompten til ChatGPT: https://chatgpt.com/share/679cc144-fa6c-8005-80f9-3988751a4b95
 
-navList.forEach(item => {
+let navList = document.querySelectorAll('.navList a');
+let mainArticle = document.getElementById('main-article');
+//let articleText = document.getElementById('main-article p');
+
+document.querySelectorAll('.navList a').forEach(item => {
+    item.addEventListener('click', (event) => {
+        event.preventDefault();
+        document.querySelectorAll(".navList a").forEach(link => link.classList.remove("active"));
+        event.target.classList.add("active");
+        const selectedCategory = document.getElementsByClassName("active")[0].innerHTML;
+        //event.target.getAttribute("Javascript");
+        updateArticle(selectedCategory);
+    })
+})
+
+function updateArticle(category) {
+    const resource = resources.filter(res => res.category === category);
+    console.log(resource[0].category)
+    //console.log(articleTitle.innerHTML)
+    mainArticle.innerHTML = `
+        <h2>${resource[0].category}</h2>
+        <p>${resource[0].text}</p>
+         ${resource[0].sources
+        .map(source => `<li><a href="${source.url}" target="_blank">${source.title}</a></li>`)
+        .join('')}
+    `;
+}
+
+updateArticle(resources[0].category)
+
+/*
+let headingCategory = document.querySelector('.navList')
+
+
+
+const resourceMapped = resources.map(item => {
+    return (
+        `<li><a>${item.category}</a></li>`
+    )
+}).join('')
+
+function updateArticle(category) {
+    const resource = resources.filter(res => res.category === category);
+    console.log(resource)
+}
+
+updateArticle();
+
+headingCategory.innerHTML = resourceMapped;
+
+console.log(resourceMapped)
+
+*/
+
+/*mainArticle.innerHTML = `
+            <h2>${resource.category}</h2>
+            <p>${resource.text}</p>
+            <ul id="sources list">
+                ${resource.sources.map(source => `<li><a href="${source.url}" target="_blank">${source.title}</a></li>`).join('')}
+            </ul>
+        `
+        */
+
+/*navList.forEach(item => {
     item.addEventListener('click', (event) => {
         const selectedCategory = event.target.getAttribute('data-category');
         updateArticle(selectedCategory);
+        console.log(selectedCategory)
     });
 });
-
-function updateArticle(category) {
-    const resource = resources.find
-}
+*/
 
 /*
 const tempHeadings = resources.map(item => {

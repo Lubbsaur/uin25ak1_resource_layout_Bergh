@@ -39,12 +39,11 @@ main section {
       li {
         
         a {
-          background: var(--white);
+          
           font-weight: 800;
           font-size: 1rem;
           background: var(--blueDark);
           color: var(--white);
-          
           height: 30px;
           padding: 1.5rem 4.2rem;    
         }
@@ -53,6 +52,11 @@ main section {
         
       }
     }
+  }
+
+  .navList a:active {
+    background: var(--white);
+    color: var(--blueDark);
   }
   
 
