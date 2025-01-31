@@ -54,7 +54,7 @@ main section {
     }
   }
 
-  .navList a:active {
+  .navList a.active {
     background: var(--white);
     color: var(--blueDark);
   }
