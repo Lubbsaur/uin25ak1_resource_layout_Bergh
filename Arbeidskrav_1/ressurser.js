@@ -95,16 +95,16 @@ const resources = [
     },
 ]
 
-/*const mainArticle = document.getElementById('main-section');
+const mainSection = document.getElementById('main-section');
 
-mainArticle.innerHTML = `
+mainSection.innerHTML = `
     <nav>
         <ul class="navList">
-            <li><a id="html">HTML</a></li>
-            <li><a id="css">CSS</a></li>
-            <li><a id="js">JavaScript</a></li>
-            <li><a id="react">React</a></li>
-            <li><a id="sanity">Sanity and headless CMS</a></li>
+            <li><a id="html" data-category>HTML</a></li>
+            <li><a id="css" data-category>CSS</a></li>
+            <li><a id="js" data-category>JavaScript</a></li>
+            <li><a id="react" data-category>React</a></li>
+            <li><a id="sanity" data-category>Sanity and headless CMS</a></li>
         </ul>
     </nav>
     <article id="main-article">
@@ -116,8 +116,24 @@ mainArticle.innerHTML = `
         <li><a href="https://html.com/">HTML.com Tutorials</a></li>
         </ul>
     </article>
-`;*/
+`;
 
+
+const navList = document.querySelectorAll('.navlist a');
+const mainArticle = document.getElementById('main-article');
+
+navList.forEach(item => {
+    item.addEventListener('click', (event) => {
+        const selectedCategory = event.target.getAttribute('data-category');
+        updateArticle(selectedCategory);
+    });
+});
+
+function updateArticle(category) {
+    const resource = resources.find
+}
+
+/*
 const tempHeadings = resources.map(item => {
     return (`
         <li><a id="${item.category}">${item.category}</a></li>
@@ -138,33 +154,26 @@ const resourcesURL = resources.flatMap(item => item.sources).map(item => item.ur
 console.log(htmlInner.category)
 
 function resourcesBody() {
-    let resourcesItem;
-
-    const newResources = resources.map((item) => {
-    if (resources.category === item) {
-      resourcesItem = resources[item];
-    }
-    });
-
-    console.log(resourcesItem)
-
-   
+       
 }
+*/
 
 
-
+/*
 const htmlTag = document.querySelector('.navList')
 htmlTag.addEventListener('click', (e) => {
     resourcesBody(e);
     console.log(resourcesBody);
-    /*
+    
     let htmlInner;
     resources.map(i => {
         htmlInner = i.category;
     })
-    console.log(htmlInner)*/
+    console.log(htmlInner)
 })  
+*/
 
+/*
 const resourcesTemp = resources.map(item => {
     return `<h2>${item.category}</h2>
             <p>${item.text}</p>
@@ -187,7 +196,7 @@ const sourcesTitle = resources.map((res) => {
 
 console.log(resourcesURL)
 //let  = document.querySelectorAll('.meny');
-
+*/
 
 /*
 function renderSite() {
