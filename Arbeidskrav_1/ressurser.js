@@ -95,11 +95,11 @@ const resources = [
     },
 ]
 
-const mainArticle = document.getElementById('main-section');
+/*const mainArticle = document.getElementById('main-section');
 
 mainArticle.innerHTML = `
     <nav>
-        <ul>
+        <ul class="navList">
             <li><a id="html">HTML</a></li>
             <li><a id="css">CSS</a></li>
             <li><a id="js">JavaScript</a></li>
@@ -116,26 +116,66 @@ mainArticle.innerHTML = `
         <li><a href="https://html.com/">HTML.com Tutorials</a></li>
         </ul>
     </article>
-`;
+`;*/
 
+const tempHeadings = resources.map(item => {
+    return (`
+        <li><a id="${item.category}">${item.category}</a></li>
+    `)
+}).join('')
 
+const htmlInner = resources[0];
 
-const tempHtml = resources.map(item => item.category);
+const tempText = resources.map(item => {
+    return item.text;
+})
 
-
+document.querySelector('.navList').innerHTML = tempHeadings;
+let resourcesHTML = document.getElementById('main-article');
 
 const resourcesURL = resources.flatMap(item => item.sources).map(item => item.url)
 
-console.log(tempHtml)
+console.log(htmlInner.category)
 
-const tempLi = document.querySelectorAll('nav ul li');
+function resourcesBody() {
+    let resourcesItem;
 
-const htmlTag = document.getElementById('html')
+    const newResources = resources.map((item) => {
+    if (resources.category === item) {
+      resourcesItem = resources[item];
+    }
+    });
+
+    console.log(resourcesItem)
+
+   
+}
+
+
+
+const htmlTag = document.querySelector('.navList')
 htmlTag.addEventListener('click', (e) => {
-    resources.map(item => {
-        document.querySelectorAll('.navList').innerHTML = `<li>${tempHtml}</li>`
+    resourcesBody(e);
+    console.log(resourcesBody);
+    /*
+    let htmlInner;
+    resources.map(i => {
+        htmlInner = i.category;
     })
-})
+    console.log(htmlInner)*/
+})  
+
+const resourcesTemp = resources.map(item => {
+    return `<h2>${item.category}</h2>
+            <p>${item.text}</p>
+            <ul>
+                <li><a href="${item.sources}">${item.sources}</a></li>
+            </ul>   
+        `  
+}).join('')
+console.log(resourcesTemp);
+
+resourcesHTML.innerHTML = resourcesTemp;
 
 const text = resources.map((res) => {
     return res.text;
@@ -145,6 +185,7 @@ const sourcesTitle = resources.map((res) => {
     return res.sources[0].title;
 });
 
+console.log(resourcesURL)
 //let  = document.querySelectorAll('.meny');
 
 
